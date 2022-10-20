@@ -3,11 +3,11 @@
     <junit printsummary="yes" fork="yes" haltonfailure="yes">
 
         <classpath location="lib/junit-4.11.jar" />
-	    <classpath location="lib/hamcrest-core-1.3.jar" />
-        <classpath location="Test/Test" />
+	<classpath location="lib/hamcrest-core-1.3.jar" />
+        <classpath location="." />
 
         <formatter type="plain"/>
-        <test name="out/test/SoftwareQualityIIIAuteline/Test/FirstTest"/>
+        <test name="FirstTest"/>
     </junit>
 
     <target name="clean">
