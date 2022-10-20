@@ -11,13 +11,13 @@ jobs:
     steps:
       - checkout
       - run: 
-	  cd src
+          cd src
           cd main
           cd java
           javac *.java
           javac MyFirstJavaProgram.java
           ls
-	  java MyFirstJavaProgram
+          java MyFirstJavaProgram
           command: "echo Hello, World!"
 
 # Invoke jobs via workflows
