@@ -11,12 +11,12 @@ jobs:
     steps:
       - checkout
       - run: cd src
-      - run: ls
+      - run: cd src
       - run: cd main
       - run: cd java
       - run: javac *.java
-      - run: javac MyFirstJavaProgram.java
       - run: ls
+      - run: javac MyFirstJavaProgram.java
       - run: java MyFirstJavaProgram
           
 
