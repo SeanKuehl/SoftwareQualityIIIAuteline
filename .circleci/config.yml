@@ -10,11 +10,11 @@ jobs:
       - image: cimg/openjdk:18.0.2
     steps:
       - checkout
-      - command: javac src/main/*.java
-      - command: ls
+      - run: javac src/main/*.java
+      - run: ls
 
 
-      
+
 
 #   - run: java MyFirstJavaProgram
 
