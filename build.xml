@@ -7,7 +7,7 @@
         <classpath location="Test/Test" />
 
         <formatter type="plain"/>
-        <test name="Test/Test/FirstTest.java"/>
+        <test name="out/test/SoftwareQualityIIIAuteline/Test/FirstTest"/>
     </junit>
 
     <target name="clean">
