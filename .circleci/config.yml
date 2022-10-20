@@ -10,13 +10,7 @@ jobs:
       - image: cimg/openjdk:18.0.2
     steps:
       - checkout
-      - run: ls
-      - run: cd src
-      - run: ls
-      - run: cd main
-      - run: ls
-      - run: cd java
-      - run: javac *.java
+      - run: javac src/main/java/ATMTest.java
       
 
 
