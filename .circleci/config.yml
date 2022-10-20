@@ -10,8 +10,9 @@ jobs:
       - image: cimg/openjdk:18.0.2
     steps:
       - checkout
-      - run: javac *.java
       - run: ls
+      - run: javac *.java
+      
 
 
 
