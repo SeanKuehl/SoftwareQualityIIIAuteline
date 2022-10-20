@@ -10,14 +10,13 @@ jobs:
       - image: cimg/openjdk:18.0.2
     steps:
       - checkout
-      - run: 
-          cd src
-          cd main
-          cd java
-          javac *.java
-          javac MyFirstJavaProgram.java
-          ls
-          java MyFirstJavaProgram
+      - run: cd src
+      - run: cd main
+      - run: cd java
+      - run: javac *.java
+      - run: javac MyFirstJavaProgram.java
+      - run: ls
+      - run: java MyFirstJavaProgram
           
 
 # Invoke jobs via workflows
