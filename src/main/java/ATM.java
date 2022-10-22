@@ -18,11 +18,15 @@ public class ATM {
     private DepositSlot depositSlot; // ATM's deposit slot
     private BankDatabase bankDatabase; // account information database
 
+
+
     // constants corresponding to main menu options
     private static final int BALANCE_INQUIRY = 1;
     private static final int WITHDRAWAL = 2;
     private static final int DEPOSIT = 3;
     private static final int EXIT = 4;
+
+    private static final int SEAN = 5;
 
     // no-argument ATM constructor initializes instance variables
     public ATM() {
@@ -33,6 +37,7 @@ public class ATM {
         cashDispenser = new CashDispenser(); // create cash dispenser
         depositSlot = new DepositSlot(); // create deposit slot
         bankDatabase = new BankDatabase(); // create acct info database
+
     }
 
     // start ATM
@@ -87,6 +92,10 @@ public class ATM {
                     currentTransaction = createTransaction(mainMenuSelection);
                     currentTransaction.execute(); // execute transaction
                     break;
+                case SEAN:
+                    currentTransaction = createTransaction(mainMenuSelection);
+                    currentTransaction.execute(); // execute transaction
+                    break;
                 case EXIT: // user chose to terminate session
                     screen.displayMessageLine("\n[~] Exiting the system...");
                     userExited = true; // this ATM session should end
@@ -104,7 +113,8 @@ public class ATM {
         screen.displayMessageLine("1 - View my balance");
         screen.displayMessageLine("2 - Withdraw cash");
         screen.displayMessageLine("3 - Deposit funds");
-        screen.displayMessageLine("4 - Exit\n");
+        screen.displayMessageLine("4 - Exit");
+        screen.displayMessageLine("5 - Sean's favorite food\n");
         screen.displayMessage("[?] Enter a choice: ");
         return keypad.getInput(); // return user's selection
     }
@@ -124,6 +134,9 @@ public class ATM {
             case DEPOSIT: // create new Deposit transaction
                 temp = new Deposit(currentAccountNumber, screen,
                         bankDatabase, keypad, depositSlot);
+                break;
+            case SEAN:
+                temp = new SeanFavorite(currentAccountNumber, screen, bankDatabase);
                 break;
         }
         return temp; // return the newly created object
