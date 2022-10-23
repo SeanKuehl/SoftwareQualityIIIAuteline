@@ -17,5 +17,8 @@ public class DepositSlot {
     return true; // deposit envelope was received
   }
 
+    public static class zahra {
+
+    }
 }
 

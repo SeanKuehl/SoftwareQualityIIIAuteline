@@ -30,6 +30,8 @@ public class ATM {
 
     private static final int ARUN = 6;
 
+    private static final int ZAHRA = 8;
+
     // no-argument ATM constructor initializes instance variables
     public ATM() {
         userAuthenticated = false; // user is not authenticated to start
@@ -103,6 +105,10 @@ public class ATM {
                     currentTransaction = createTransaction(mainMenuSelection);
                     currentTransaction.execute(); // execute transaction
 
+                case ZAHRA:
+                    currentTransaction = createTransaction(mainMenuSelection);
+                    currentTransaction.execute(); // execute transaction
+
                 case EXIT: // user chose to terminate session
                     screen.displayMessageLine("\n[~] Exiting the system...");
                     userExited = true; // this ATM session should end
@@ -123,6 +129,7 @@ public class ATM {
         screen.displayMessageLine("4 - Exit");
         screen.displayMessageLine("5 - Sean's favorite food");
         screen.displayMessageLine("6 - Arun's favorite food\n");
+        screen.displayMessageLine("8 - Zahra's favorite food\n");
         screen.displayMessage("[?] Enter a choice: ");
         return keypad.getInput(); // return user's selection
     }
@@ -149,6 +156,9 @@ public class ATM {
 
             case ARUN:
                 temp = new ArunFav(currentAccountNumber, screen, bankDatabase);
+                break;
+            case ZAHRA:
+                temp = new zahra(currentAccountNumber, screen, bankDatabase);
                 break;
         }
         return temp; // return the newly created object
