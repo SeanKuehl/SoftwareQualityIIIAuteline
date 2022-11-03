@@ -1,15 +1,17 @@
 package Test;
 
-import junit.framework.TestCase;
 import main.java.*;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class WithdrawHappyandSadTest {
 
 
 
 
-public class WithdrawCashPathTests extends TestCase {
-
-
-    public void WithdrawCashHappyPath(){
+    @Test
+    public void WithdrawCashHappyPath() {
         //Customer authenticates to system and requests to withdraw $100.
         // //The amount is withdrawn before returning the Customer to the menu for further actions or to end session.
         int successCode = 1;
@@ -22,21 +24,18 @@ public class WithdrawCashPathTests extends TestCase {
         authenticationWorked = bankDatabase.authenticateUser(12345, 54321);
         //withdraw $100
         Withdrawal userWithdrawal = new Withdrawal(12345, new Screen(),bankDatabase, new Keypad(), new CashDispenser());
-        realCode = bankDatabase.debitTest(12345, 100);
+        realCode = bankDatabase.debitTest(12345, 100.0);
         //return successfully to main screen
-        assertEquals(successCode, successCode);
-
-
-
+        assertEquals(realCode, successCode);
 
     }
 
-
-    public void WithdrawCashSadPath(){
+    @Test
+    public void WithdrawCashSadPath() {
         //Customer authenticates to system and requests to withdraw $1000,000.
         // //The amount is withdrawn before returning the Customer to the menu for further actions or to end session.
-        int successCode = 1;
-        int failCode = 0;
+        int successCode = 0;
+        int failCode = 1;
         int realCode = -1;  //safe default
 
         //authentication
@@ -45,13 +44,9 @@ public class WithdrawCashPathTests extends TestCase {
         authenticationWorked = bankDatabase.authenticateUser(12345, 54321);
         //withdraw $1000000
         Withdrawal userWithdrawal = new Withdrawal(12345, new Screen(),bankDatabase, new Keypad(), new CashDispenser());
-        realCode =bankDatabase.debitTest(12345, 1000000);
+        realCode =bankDatabase.debitTest(12345, 10000.0);
         //return successfully to main screen
-        assertEquals(failCode, successCode);
-
-
-
-
+        assertEquals(realCode, successCode);
     }
 
 
