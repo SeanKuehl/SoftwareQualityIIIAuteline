@@ -22,7 +22,7 @@ public class WithdrawCashPathTests extends TestCase {
         authenticationWorked = bankDatabase.authenticateUser(12345, 54321);
         //withdraw $100
         Withdrawal userWithdrawal = new Withdrawal(12345, new Screen(),bankDatabase, new Keypad(), new CashDispenser());
-        realCode = bankDatabase.debit(12345, 100);
+        realCode = bankDatabase.debitTest(12345, 100);
         //return successfully to main screen
         assertEquals(successCode, successCode);
 
@@ -45,7 +45,7 @@ public class WithdrawCashPathTests extends TestCase {
         authenticationWorked = bankDatabase.authenticateUser(12345, 54321);
         //withdraw $1000000
         Withdrawal userWithdrawal = new Withdrawal(12345, new Screen(),bankDatabase, new Keypad(), new CashDispenser());
-        realCode =bankDatabase.debit(12345, 1000000);
+        realCode =bankDatabase.debitTest(12345, 1000000);
         //return successfully to main screen
         assertEquals(failCode, successCode);
 
