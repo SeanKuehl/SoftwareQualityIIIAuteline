@@ -10,7 +10,7 @@ public class ATMJTest extends TestCase {
 
     public void testTestRun() {
         ATM mobileATM = new ATM();
-        //mobileATM.run();
+        mobileATM.run();
         assertEquals(true, true);
     }
 }
