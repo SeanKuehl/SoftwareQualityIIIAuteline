@@ -8,7 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="library" exported="" name="junit" level="project" />
     <orderEntry type="library" exported="" name="auteline" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
@@ -31,5 +31,6 @@
     </orderEntry>
     <orderEntry type="library" name="derby" level="project" />
     <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
+    <orderEntry type="library" name="junit1" level="project" />
   </component>
 </module>
