@@ -8,8 +8,35 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+
     <orderEntry type="library" exported="" name="auteline" level="project" />
     <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="library" name="junit" level="project" />
+
+    <orderEntry type="library" exported="" name="junit" level="project" />
+    <orderEntry type="library" exported="" name="auteline" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/junit-4.11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/derby.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="jar://$MODULE_DIR$/lib/derby.jar!/" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="derby" level="project" />
+    <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
+    <orderEntry type="library" name="junit1" level="project" />
+
   </component>
 </module>
