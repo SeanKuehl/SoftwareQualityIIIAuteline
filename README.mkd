@@ -1,5 +1,8 @@
 # Auteline
 
+link to future GUI mockups: https://xd.adobe.com/view/f706968f-c350-44ff-8819-5955d3f6859a-a255/
+
+
 ![Screenshot](./assets/screenshot.png)
 
 ### Important Notes
