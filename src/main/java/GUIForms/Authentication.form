@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="main.java.GUIForms.Authentication">
   <grid id="27dc6" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="20" width="614" height="519"/>
+      <xy x="20" y="20" width="648" height="668"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -55,7 +55,8 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <icon value="main/java/GUIImages/ZASSLogo.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="cd97f" class="javax.swing.JLabel">
