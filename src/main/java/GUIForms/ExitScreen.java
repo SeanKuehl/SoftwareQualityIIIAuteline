@@ -1,4 +1,13 @@
 package main.java.GUIForms;
 
-public class ExitScreen {
+import javax.swing.*;
+
+public class ExitScreen extends JFrame {
+    public JPanel MainPanel;
+
+    public ExitScreen(){
+
+    }
+
+
 }

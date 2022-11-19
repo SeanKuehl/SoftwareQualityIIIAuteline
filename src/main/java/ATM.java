@@ -1,7 +1,9 @@
 package main.java;
 
 import main.java.GUIForms.Authentication;
+import main.java.GUIForms.ExitScreen;
 import main.java.GUIForms.MainMenu;
+import main.java.GUIForms.ViewMyBalance;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +35,12 @@ public class ATM {
     private static final int DEPOSIT = 3;
     private static final int EXIT = 4;
 
+
+    private static int accountNumber = 0;
     private static Authentication a = new Authentication();
+    private static MainMenu mm = new MainMenu();
+    private static ViewMyBalance vb = new ViewMyBalance();
+    private static ExitScreen es = new ExitScreen();
 
     // no-argument ATM constructor initializes instance variables
     public ATM(boolean guiMode) {
@@ -61,6 +68,14 @@ public class ATM {
 
 
 
+    }
+
+    public static void SetAccountNumber(int number){
+        accountNumber = number;
+    }
+
+    public static int GetAccountNumber(){
+        return accountNumber;
     }
 
     // start ATM
@@ -119,8 +134,10 @@ public class ATM {
     public static void showMainMenu(){
         a.dispose();
         a.setVisible(false);
+        vb.dispose();
+        vb.setVisible(false);
 
-        MainMenu mm = new MainMenu();
+
 
         mm.setPreferredSize(new Dimension(600,600));
         mm.setMinimumSize(new Dimension(600,600));
@@ -130,6 +147,36 @@ public class ATM {
 
         mm.setVisible(true);
 
+    }
+
+    public static void viewMyBalance(){
+        mm.dispose();
+        mm.setVisible(false);
+
+
+
+        vb.setPreferredSize(new Dimension(600,600));
+        vb.setMinimumSize(new Dimension(600,600));
+
+        vb.setContentPane(new ViewMyBalance().MainPanel);
+        vb.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        vb.setVisible(true);
+    }
+
+    public static void showExitScreen(){
+        mm.dispose();
+        mm.setVisible(false);
+
+
+
+        es.setPreferredSize(new Dimension(600,600));
+        es.setMinimumSize(new Dimension(600,600));
+
+        es.setContentPane(new ExitScreen().MainPanel);
+        es.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        es.setVisible(true);
     }
 
     // display the main menu and perform transactions

@@ -43,12 +43,34 @@ public class BankDatabase {
 
   // return available balance of Account with specified account number
   public double getAvailableBalance(int userAccountNumber) {
-    return getAccount(userAccountNumber).getAvailableBalance();
+
+    // loop through accounts searching for matching account number
+    for (Account currentAccount : accounts) {
+      // return current account if match found
+      if (currentAccount.getAccountNumber() == userAccountNumber) {
+        return currentAccount.getAvailableBalance();
+      }
+    }
+    return 0.0; // if no matching account was found
+
+    //return getAccount(userAccountNumber).getAvailableBalance();
   }
+
+
 
   // return total balance of Account with specified account number
   public double getTotalBalance(int userAccountNumber) {
-    return getAccount(userAccountNumber).getTotalBalance();
+
+    // loop through accounts searching for matching account number
+    for (Account currentAccount : accounts) {
+      // return current account if match found
+      if (currentAccount.getAccountNumber() == userAccountNumber) {
+        return currentAccount.getTotalBalance();
+      }
+    }
+    return 0.0; // if no matching account was found
+
+    //return getAccount(userAccountNumber).getTotalBalance();
   }
 
   // credit an amount to Account with specified account number

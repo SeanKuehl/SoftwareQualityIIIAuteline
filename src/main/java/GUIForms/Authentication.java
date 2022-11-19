@@ -29,6 +29,7 @@ public class Authentication extends JFrame {
 
                 if (authenticated){
 
+                    ATM.SetAccountNumber(Integer.parseInt(textField1.getText()));
 
                     ATM.showMainMenu();
 
