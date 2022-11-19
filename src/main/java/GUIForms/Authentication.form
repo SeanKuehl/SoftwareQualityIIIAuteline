@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="main.java.GUIForms.Authentication">
-  <grid id="27dc6" layout-manager="GridBagLayout">
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridBagLayout">
     <constraints>
       <xy x="20" y="20" width="648" height="668"/>
     </constraints>
@@ -19,7 +19,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Pin:"/>
         </properties>
       </component>
       <component id="fdf8d" class="javax.swing.JTextField" binding="textField2" default-binding="true">
@@ -65,7 +65,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Account Number:"/>
         </properties>
       </component>
       <hspacer id="3d46b">
