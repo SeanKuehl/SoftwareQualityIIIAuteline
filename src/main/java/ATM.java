@@ -1,9 +1,6 @@
 package main.java;
 
-import main.java.GUIForms.Authentication;
-import main.java.GUIForms.ExitScreen;
-import main.java.GUIForms.MainMenu;
-import main.java.GUIForms.ViewMyBalance;
+import main.java.GUIForms.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +22,7 @@ public class ATM {
     private Keypad keypad; // ATM's keypad
     private CashDispenser cashDispenser; // ATM's cash dispenser
     private DepositSlot depositSlot; // ATM's deposit slot
-    private BankDatabase bankDatabase; // account information database
+    public static BankDatabase bankDatabase; // account information database
 
 
 
@@ -41,6 +38,10 @@ public class ATM {
     private static MainMenu mm = new MainMenu();
     private static ViewMyBalance vb = new ViewMyBalance();
     private static ExitScreen es = new ExitScreen();
+
+    private static WithdrawCash wc = new WithdrawCash();
+
+    private static DepositCash dc = new DepositCash();
 
     // no-argument ATM constructor initializes instance variables
     public ATM(boolean guiMode) {
@@ -136,6 +137,11 @@ public class ATM {
         a.setVisible(false);
         vb.dispose();
         vb.setVisible(false);
+        wc.dispose();
+        wc.setVisible(false);
+        dc.dispose();
+        dc.setVisible(false);
+
 
 
 
@@ -162,6 +168,36 @@ public class ATM {
         vb.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         vb.setVisible(true);
+    }
+
+    public static void showWithdrawCash(){
+
+        mm.dispose();
+        mm.setVisible(false);
+
+        wc.setPreferredSize(new Dimension(600,600));
+        wc.setMinimumSize(new Dimension(600,600));
+
+        wc.setContentPane(new WithdrawCash().MainPanel);
+        wc.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        wc.setVisible(true);
+    }
+
+    public static void showDepositCash(){
+        mm.dispose();
+        mm.setVisible(false);
+
+
+
+        dc.setPreferredSize(new Dimension(600,600));
+        dc.setMinimumSize(new Dimension(600,600));
+
+        dc.setContentPane(new DepositCash().MainPanel);
+        dc.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        dc.setVisible(true);
+
     }
 
     public static void showExitScreen(){

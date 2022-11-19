@@ -16,15 +16,15 @@ public class ViewMyBalance extends JFrame{
 
     public ViewMyBalance(){
 
-        BankDatabase database = new BankDatabase();
+
         int accountNum = ATM.GetAccountNumber();
 
         if (accountNum == 0){
 
         }
         else {
-            double availableBalance = database.getAvailableBalance(accountNum);
-            double totalBalance = database.getTotalBalance(accountNum);
+            double availableBalance = ATM.bankDatabase.getAvailableBalance(accountNum);
+            double totalBalance = ATM.bankDatabase.getTotalBalance(accountNum);
 
 
 

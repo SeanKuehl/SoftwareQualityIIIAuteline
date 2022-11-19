@@ -28,12 +28,14 @@ public class MainMenu extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //withdraw cash
+                ATM.showWithdrawCash();
             }
         });
         depositFundsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //deposit funds
+                ATM.showDepositCash();
             }
         });
         exitButton.addActionListener(new ActionListener() {
