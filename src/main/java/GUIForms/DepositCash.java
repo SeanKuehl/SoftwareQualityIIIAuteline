@@ -1,6 +1,7 @@
 package main.java.GUIForms;
 
 import main.java.ATM;
+import main.java.BankDatabase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -31,6 +32,24 @@ public class DepositCash extends JFrame{
                 ATM.showMainMenu();
             }
         });
+    }
+
+    public void EnterDepositAmount(String amount){
+        textField1.setText(amount);
+    }
+
+    public boolean PressSubmitButton(int account){
+        BankDatabase db = new BankDatabase();
+        double amount = Double.parseDouble(textField1.getText());
+
+        try {
+            db.credit(account, amount);
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
+
     }
 
 }

@@ -1,6 +1,7 @@
 package main.java.GUIForms;
 
 import main.java.ATM;
+import main.java.BankDatabase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -111,6 +112,19 @@ availableBalance = bankDatabase.getAvailableBalance(getAccountNumber());
                 }
             }
         });
+    }
+
+
+    public boolean WithdrawAmount(double amount, int account){
+
+        BankDatabase db = new BankDatabase();
+        double availableBalance = db.getAvailableBalance(account);
+        if (availableBalance >= amount){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 

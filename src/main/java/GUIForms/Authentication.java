@@ -42,5 +42,26 @@ public class Authentication extends JFrame {
 
             }
         });
+
+
+
     }
+
+    public void EnterAccountNumber(String input){
+        textField1.setText(input);
+    }
+
+    public void EnterPin(String input){
+        textField2.setText(input);
+    }
+
+    public boolean PressSubmit(){
+        BankDatabase database = new BankDatabase();
+        int accountNumber = Integer.parseInt(textField1.getText());
+        int pin = Integer.parseInt((textField2.getText()));
+        boolean auth = database.authenticateUser(accountNumber, pin);
+        return auth;
+    }
+
+
 }
