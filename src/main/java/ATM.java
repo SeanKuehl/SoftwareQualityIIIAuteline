@@ -1,5 +1,10 @@
 package main.java;
 
+import main.java.GUIForms.*;
+
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * SMTI06, 54411850, M Haidar Hanif Task Five: Automated Teller Machine Auteline | Simple ATM
  * simulator with basic features
@@ -10,13 +15,14 @@ package main.java;
 
 public class ATM {
 
+    private boolean GUIMODE = false;
     private boolean userAuthenticated; // whether user is authenticated
     private int currentAccountNumber; // current user's account number
     private Screen screen; // ATM's screen
     private Keypad keypad; // ATM's keypad
     private CashDispenser cashDispenser; // ATM's cash dispenser
     private DepositSlot depositSlot; // ATM's deposit slot
-    private BankDatabase bankDatabase; // account information database
+    public static BankDatabase bankDatabase; // account information database
 
 
 
@@ -26,30 +32,84 @@ public class ATM {
     private static final int DEPOSIT = 3;
     private static final int EXIT = 4;
 
-    // no-argument ATM constructor initializes instance variables
-    public ATM() {
-        userAuthenticated = false; // user is not authenticated to start
-        currentAccountNumber = 0; // no current account number to start
-        screen = new Screen(); // create screen
-        keypad = new Keypad(); // create keypad
-        cashDispenser = new CashDispenser(); // create cash dispenser
-        depositSlot = new DepositSlot(); // create deposit slot
-        bankDatabase = new BankDatabase(); // create acct info database
 
+    private static int accountNumber = 0;
+    private static Authentication a = new Authentication();
+    private static MainMenu mm = new MainMenu();
+    private static ViewMyBalance vb = new ViewMyBalance();
+    private static ExitScreen es = new ExitScreen();
+
+    private static WithdrawCash wc = new WithdrawCash();
+
+    private static DepositCash dc = new DepositCash();
+
+    // no-argument ATM constructor initializes instance variables
+    public ATM(boolean guiMode) {
+
+        GUIMODE = guiMode;
+        if (GUIMODE){
+            userAuthenticated = false; // user is not authenticated to start
+            currentAccountNumber = 0; // no current account number to start
+            cashDispenser = new CashDispenser(); // create cash dispenser
+            depositSlot = new DepositSlot(); // create deposit slot
+            bankDatabase = new BankDatabase(); // create acct info database
+
+
+
+        }
+        else {
+            userAuthenticated = false; // user is not authenticated to start
+            currentAccountNumber = 0; // no current account number to start
+            screen = new Screen(); // create screen
+            keypad = new Keypad(); // create keypad
+            cashDispenser = new CashDispenser(); // create cash dispenser
+            depositSlot = new DepositSlot(); // create deposit slot
+            bankDatabase = new BankDatabase(); // create acct info database
+        }
+
+
+
+    }
+
+    public static void SetAccountNumber(int number){
+        accountNumber = number;
+    }
+
+    public static int GetAccountNumber(){
+        return accountNumber;
     }
 
     // start ATM
     public void run() {
-        // welcome and authenticate user; perform transactions
-        // loop while user is not yet authenticated
-        while (!userAuthenticated) {
-            screen.displayMessageLine("\n[i] Welcome to Auteline Bank ATM!");
-            authenticateUser();
+        if (GUIMODE){
+
+
+
+            a.setPreferredSize(new Dimension(600, 600));
+            a.setMinimumSize(new Dimension(600,600));
+            a.setContentPane(new Authentication().MainPanel);
+            a.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+            a.setVisible(true);
+
+
+
+
+
         }
-        performTransactions(); // user is now authenticated
-        userAuthenticated = false; // reset before next ATM session
-        currentAccountNumber = 0; // reset before next ATM session
-        screen.displayMessageLine("\n[i] Thank you for banking with Auteline Bank!");
+        else {
+            // welcome and authenticate user; perform transactions
+            // loop while user is not yet authenticated
+            while (!userAuthenticated) {
+                screen.displayMessageLine("\n[i] Welcome to Auteline Bank ATM!");
+                authenticateUser();
+            }
+            performTransactions(); // user is now authenticated
+            userAuthenticated = false; // reset before next ATM session
+            currentAccountNumber = 0; // reset before next ATM session
+            screen.displayMessageLine("\n[i] Thank you for banking with Auteline Bank!");
+        }
+
 
     }
 
@@ -70,6 +130,89 @@ public class ATM {
         } else {
             screen.displayMessageLine("[!] Invalid account number or PIN. Please try again.");
         }
+    }
+
+    public static void showMainMenu(){
+        a.dispose();
+        a.setVisible(false);
+        vb.dispose();
+        vb.setVisible(false);
+        wc.dispose();
+        wc.setVisible(false);
+        dc.dispose();
+        dc.setVisible(false);
+
+
+
+
+        mm.setPreferredSize(new Dimension(600,600));
+        mm.setMinimumSize(new Dimension(600,600));
+
+        mm.setContentPane(new MainMenu().MainPanel);
+        mm.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        mm.setVisible(true);
+
+    }
+
+    public static void viewMyBalance(){
+        mm.dispose();
+        mm.setVisible(false);
+
+
+
+        vb.setPreferredSize(new Dimension(600,600));
+        vb.setMinimumSize(new Dimension(600,600));
+
+        vb.setContentPane(new ViewMyBalance().MainPanel);
+        vb.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        vb.setVisible(true);
+    }
+
+    public static void showWithdrawCash(){
+
+        mm.dispose();
+        mm.setVisible(false);
+
+        wc.setPreferredSize(new Dimension(600,600));
+        wc.setMinimumSize(new Dimension(600,600));
+
+        wc.setContentPane(new WithdrawCash().MainPanel);
+        wc.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        wc.setVisible(true);
+    }
+
+    public static void showDepositCash(){
+        mm.dispose();
+        mm.setVisible(false);
+
+
+
+        dc.setPreferredSize(new Dimension(600,600));
+        dc.setMinimumSize(new Dimension(600,600));
+
+        dc.setContentPane(new DepositCash().MainPanel);
+        dc.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        dc.setVisible(true);
+
+    }
+
+    public static void showExitScreen(){
+        mm.dispose();
+        mm.setVisible(false);
+
+
+
+        es.setPreferredSize(new Dimension(600,600));
+        es.setMinimumSize(new Dimension(600,600));
+
+        es.setContentPane(new ExitScreen().MainPanel);
+        es.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        es.setVisible(true);
     }
 
     // display the main menu and perform transactions

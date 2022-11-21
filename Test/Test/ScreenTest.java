@@ -4,11 +4,11 @@ import main.java.Screen;
 import org.junit.Assert;
 import junit.framework.TestCase;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+//import org.mockito.InjectMocks;
+//import org.mockito.Mock;
 //import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.mockito.Mockito.*;
+//import static org.mockito.Mockito.*;
 
 
 public class ScreenTest extends TestCase {
